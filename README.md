@@ -1,4 +1,4 @@
-# Thumber
+# Thumblr
 
 *Clone of Tumblr, instead of likes let do it with thumbs.*
 
@@ -11,11 +11,11 @@
 - Post can be search by a tag and in User Profile Page by Archive link.
 
 ## Design Docs
-[View Wireframes](https://github.com/JJGITTY2018/Thumber/tree/master/Wireframe "View Wireframes")
-React Components
-API Endpoints
-DB Schema
-Sample State
+[View Wireframe](https://github.com/JJGITTY2018/Thumblr/blob/master/docs/wireframe.jpg "View Wireframe")
+[React Components](https://github.com/JJGITTY2018/Thumblr/blob/master/docs/component_hierachy.md "React Components")
+[API Endpoints](https://github.com/JJGITTY2018/Thumblr/blob/master/docs/API_Endpoints.md "API Endpoints")
+[DB Schema](https://github.com/JJGITTY2018/Thumblr/blob/master/docs/DB%20Scheme.md "DB Schema")
+[Sample State](https://github.com/JJGITTY2018/Thumblr/blob/master/docs/Sample%20State.md "Sample State")
 
 ## Implementation Timeline
 
@@ -38,7 +38,7 @@ Objective: Users should be able to create posts and delete posts
 Objective: Make it look good. 
 
 
-#### Bonus Features
+### Bonus Features
 Messages
 Likes
-------------
+
