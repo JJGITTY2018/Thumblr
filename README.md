@@ -1,4 +1,4 @@
-# Thumber
+# Thumblr
 
 *Clone of Tumblr, instead of likes let do it with thumbs.*
 
@@ -20,7 +20,7 @@ Sample State
 ## Implementation Timeline
 
 ### Phase 1: Backend setup and Frontend Home Page (1 Day)
-Objective: Functioning front end skeleton.
+Objective: Functioning backend calls.
 
 ### Phase 2: User Model, API, Search, and Components (2 days)
 Objective: Users can be created, indexed, searched for, and viewed individually. User attributes can be edited by that user.
