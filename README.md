@@ -1,4 +1,4 @@
-# Thumblr
+# Thumber
 
 *Clone of Tumblr, instead of likes let do it with thumbs.*
 
@@ -19,24 +19,26 @@ Sample State
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Frontend Home Page (1 Day)
-Objective: Functioning backend calls.
-
-### Phase 2: User Model, API, Search, and Components (2 days)
-Objective: Users can be created, indexed, searched for, and viewed individually. User attributes can be edited by that user.
-### Phase 3: Questions, Answers, and Matching (3 days)
-
-Objective: Questions can be indexed and responded to. Answers are available to calculate match percentages. Match percentages appear on user profiles and index items.
-
-### Phase 4: Threads and Messaging (2 days)
-
-Objective: Threads can be created, indexed, and replied to through messages.
-
-### Phase 5: Advanced Search/Pagination for Users Index (1 day)
-
-Objective: Add pagination/infinite scroll to users index. Add search by more parameters (username, summary, etc.).
-
-Bonus Features (TBD)User can block other users.Implementation of OKCupids "DoubleTake" feature.Messages can be searched/sorted.Advanced User attributes (astrological sign, smoker, pets, etc.) 
+### Phase 1: Back End Setup And CRUDing (4 Days )
+Objective: Functioning back end skeleton by the end of 4th Day.
 
 
+### Phase 2: Front End - User Login to Dash Board Page (2 Days)
+Objective: Login Page to Dash Board
+
+### Phase 3: Front End - Get Post from followers to User Dashboard and Profile Page ( 4 Days )
+
+Objective: User should be able to see posts from other users on their dashboard and access to their 
+
+### Phase 4: Testing Functionality ( 3 Days )
+
+Objective: Users should be able to create posts and delete posts
+
+### Phase 5: CSS Styling (2 days)
+Objective: Make it look good. 
+
+
+#### Bonus Features
+Messages
+Likes
 ------------

@@ -34,11 +34,3 @@
 * `DELETE /api/posts/:id`
   * Deletes post
 
-### Answers
-*Answers are required in order to compare users for matching*
-* `POST /api/answer`
-  * User answers a specific question
-* `GET /api/answers`
-  * Answers are fetched for user compatibility
-* `PATCH /api/answers/:answerId`
-  * User can change their answers
