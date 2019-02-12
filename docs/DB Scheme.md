@@ -1,104 +1,92 @@
-**USERS** TABLE
+**USERS**  TABLE
 
 | **Column Name** | **Data Type** | **Details** |
 | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |
-| Username | String | Not null, indexed, unique |
-| Email | String | Not null, indexed, unique |
-| Password | String | Not null |
+| Id | INT | SERIAL, PRIMARY KEY |
+| User\_name | VARCHAR | NOT NULL UNIQUE |
+| Email | VARCHAR | NOT NULL UNIQUE |
+| Password\_digest | VARCHAR | NOT NULL  |
+| Timestamp | TIMESTAMP |   |
+| Last\_login | TIMESTAMP |   |
 
-Each user has a profile with many posts, many followers...
+_Each user has a profile with many posts, many followers…_
 
-------
+_ _
 
-**PROFILE** TABLE
-
-| **Column Name** | **Data Type** | **Details** | **Relation to** |
-| --- | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |   |
-| User\_id | Integer | Foreign key, not null | Belongs to USER Table |
-| Profile\_photo | Text | URL |   |
-| Header\_photo | Text | URL |   |
-| Name | Text | URL | |
-
-One profile belongs to one user
-
------
-
-**FOLLOWING** TABLE
+**PROFILE**  TABLE
 
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |   |
-| User\_id | Integer | Foreign key, not null | USERS |
-| Following\_id | Integer | Foreign key, not null | USERS |
+| Id | INT | SERIAL NOT NULL PRIMARY KEY |   |
+| User\_Id | INT | FOREIGN KEY NOT NULL | REFERENCE TO USERS(ID) ON DELETE CASCADE |
+| Profile\_URL | VARCHAR | URL |   |
+| Header\_URL | VARCHAR | URL |   |
+| First\_name | VARCHAR |   |   |
+| Last\_name | VARCHAR |   |   |
 
-One users can follow many users
-
------
-
-**TAGs** TABLE
-
-| **Column Name** | **Data Type** | **Details** | **Relation to** |
-| --- | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |   |
-| Name | Text |   |   | |
-
-
--------
-
-**POSTS** TABLE
+**FOLLOWING**  TABLE
 
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |   |
-| Post_type | String | Not null |  Default to text |
-| text_title | Text | Not null |   |
-| text_body | Text | Not null |   |
-| | | |
-| PostTag\_id | Integer | Foreign Key | POST TAG Table - which tags folder *maynot need |
-| User\_id | Interger | Foreign Key | USERS Table - post by which user |
-| Reblog\_id | Integer |   | POST ID |
-|Timestamp | Text | Not Null | When was this post published|
-|||||
-|video_url| String | | external URL if type .= Video|
-|video_title| String | | |
-|video_body| String | | |
-| | | | |
-|audio_title| String | | |
-|audio_url| String | | external URL if type .= audio|
-|audio_body| String | | |
-|audio_source| String | | |
-|||||
-|quote_text| string |  |   |
-|quote_source| string |  |   |
-| link_url | string | | if type = LINK|
+| Id | INT | NOT NULL SERIAL PRIMARY KEY |   |
+| Follower\_id | INT | FOREIGN KEY NOT NULL | REFERENCE TO USERS(id) |
+| Following\_id | INT | FOREIGN KEY NOT NULL | REFERENCE TO USERS(id) |
 
-------
+_Each users has Multiple followers and can be followed by multiples users_
 
-**POSTS** JOIN TAGS TABLE
+**TAGs**  TABLE
 
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |  *maynot need |
-| Post\_id | Integer | Foreign Key, Not Null | Post Table |
-| Tags\_id | Integer | Foreign Key, Not Null | Tags Table |
+| Id | INT | SERIAL NOT NULL PRIMARY KEY |   |
+| Tag\_name | VARCHAR |   |   |
 
+**POSTS**  TABLE
 
-------
-**LIKES** TABLE
+| **Column Name** | **Data Type** | **Details** | **Relation to** |   |
+| --- | --- | --- | --- | --- |
+| Id | INT | NOT NULL SERIAL PRIMARY KEY |   |   |
+| Type | CHAR | NOT NULL |   | Def: text, image(s), quote, video, links |
+| text\_title | VCHAR |   |   |   |
+| text\_body | VCHAR |   |   |   |
+|   |   |   |   |   |
+| Author\_id | INT | FOREIGN KEY | REFERENCE TO USERS(id) ON DELETE CASCADE |   |
+| Reblog\_id | INT |   | REFERENCE TO POSTS(id) ON DELETE SET NULL |   |
+| Publish\_date | TIMESTAMP |   |   | When was this published |
+|   |   |   |   |   |
+| video\_url | VCHAR |   |   |   |
+| video\_caption | VCHAR |   |   |   |
+| video\_body | VCHAR |   |   |   |
+|   |   |   |   |   |
+| audio\_caption | VCHAR |   |   |   |
+| audio\_url | VCHAR |   |   |   |
+| audio\_source | VCHAR |   |   |   |
+|   |   |   |   |   |
+| quote\_text | VCHAR |   |   |   |
+| quote\_source | VCHAR |   |   |   |
+| link\_url | VCHAR |   |   |   |
+
+**POSTS**  JOIN TAGS TABLE
 
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |   |
-| Post\_id | Integer | Foreign Key, Not Null | Post Table |
-| User\_id | Integer | Foreign Key, Not Null | User Table |
+| Id | INT | NOT NULL SERIAL PRIMARY KEY |   |
+| Post\_id | INT | FOREIGN KEY NOT NULL | REFERENCE TO POSTS(id) ON DELETE CASCADE |
+| Tag\_id | INT | FOREIGN KEY NOT NULL | REFERENCE TO TAGS(id) |
 
-**IMAGE** JOIN TABLE
+**LIKES**  TABLE
 
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |   |
-| user_id | Integer | Foreign Key, Not Null | create by which users |
-| image_url | String | NOT NULL |  | |
+| Id | INT | NOT NULL PRIMARY KEY SERIAL |   |
+| Post\_id | INT | FOREIGN KEY | REFERENCE TO POST(id) ON DELETE CASCADE |
+| User\_id | INT | FOREIGN KEY | REFERENCE TO USERS(id) ON DELETE SET TO NULL |
 
+**IMAGE**  JOIN TABLE
+
+| **Column Name** | **Data Type** | **Details** | **Relation to** |
+| --- | --- | --- | --- |
+| Id | INT | NOT NULL PRIMARY KEY SERIAL | \*not needed |
+| Poster\_id | INT | FOREIGN KEY NOT NULL | REFERENCE TO USERS(id) |
+| Image\_url | VARCHAR | NOT NULL |
+ |
