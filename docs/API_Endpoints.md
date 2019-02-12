@@ -11,8 +11,8 @@
 ### Users
 * `GET /api/users`
 
-* `GET /api/users/:userId`
-  * Fetches single existing user profile
+* `GET /api/users/:userid`
+  * Fetches a existing user profile
 
 * `POST /api/users`
   * Creates new user
@@ -21,16 +21,39 @@
   * Allows user to update their profile
 
 ### Posts
-* `GET /api/:userId/posts`
+
+* `GET /api/posts/:id`
+ * Get a post from the given ID
+
+* `GET /api/posts/:users_id/type/:type_id`
+ * Get all post based from a user, based on type_id
+ 
+* `GET /api/posts/users/:user_id`
  * Get all posts from specific users
  
-* `GET /api/:tag_id/posts`
- * Get all posts from specific tags
+* `GET /api/posts/tags/:tag_id`
+ * Get all posts from based on tags
  
-* `POST /api/posts`
+* `POST /api/posts/`
  * Creates new posts
-     * Creates new tags
-
+ 
 * `DELETE /api/posts/:id`
-  * Deletes post
+  * Deletes the post
 
+### Tags
+* `GET /api/tags/:id`
+  * GET name of the tag
+  
+* `POST /api/tags/:name`
+ * Creates new tags 
+ 
+
+ ### Images/Videos
+* `GET /api/post/:id`/images
+  * GET name of the tag
+
+ 
+ 
+ 
+ 
+ 

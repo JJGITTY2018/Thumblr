@@ -7,9 +7,9 @@
 | Email | String | Not null, indexed, unique |
 | Password | String | Not null |
 
-_Each user has a profile with many posts, many followers,_
-------
+Each user has a profile with many posts, many followers...
 
+------
 
 **PROFILE** TABLE
 
@@ -25,15 +25,15 @@ One profile belongs to one user
 
 -----
 
-**FOLLOWERS** TABLE
+**FOLLOWING** TABLE
 
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
 | Id | Integer SERIAL | Not null, primary key |   |
 | User\_id | Integer | Foreign key, not null | USERS |
-| Follower\_id | Integer | Foreign key, not null | USERS |
+| Following\_id | Integer | Foreign key, not null | USERS |
 
-One users has many users
+One users can follow many users
 
 -----
 
@@ -42,7 +42,7 @@ One users has many users
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
 | Id | Integer SERIAL | Not null, primary key |   |
-| Name | Text |   |   |
+| Name | Text |   |   | |
 
 
 -------
@@ -52,12 +52,18 @@ One users has many users
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
 | Id | Integer SERIAL | Not null, primary key |   |
-| Type | String | Not null |   |
-| Title | Text | Not null |   |
-| Body | Text | Not null |   |
-| Postag\_id | Integer | Foreign Key | POST TAG Table |
+| Post_type | String | Not null |  Default to text |
+| text_title | Text | Not null |   |
+| text_body | Text | Not null |   |
+| PostTag\_id | Integer | Foreign Key | POST TAG Table |
 | User\_id | Interger | Foreign Key | USERS Table |
-| CopyFrom\_Post | Integer |   | POST ID |
+| Reblog\_id | Integer |   | POST ID |
+|Timestamp | TEXT | NOT NULL | When was this post published|
+|video_url| String | | external URL if type .= Video|
+|audio| String | | external URL if type .= audio|
+|quote_text| string |  |   |
+|quote_source| string |  |   |
+| link_url | string | | if type = LINK|
 
 ------
 
@@ -78,3 +84,19 @@ One users has many users
 | Id | Integer SERIAL | Not null, primary key |   |
 | Post\_id | Integer | Foreign Key, Not Null | Post Table |
 | User\_id | Integer | Foreign Key, Not Null | User Table |
+
+**IMAGE** JOIN TABLE
+
+
+| **Column Name** | **Data Type** | **Details** | **Relation to** |
+| --- | --- | --- | --- |
+| Id | Integer SERIAL | Not null, primary key |   |
+| Post\_id | Integer | Foreign Key, Not Null | Post Table |
+| Image_ID| Integer | NOT NULL | | |
+
+| **Column Name** | **Data Type** | **Details** | **Relation to** |
+| --- | --- | --- | --- |
+| Id | Integer SERIAL | Not null, primary key |   |
+| user_id | Integer | Foreign Key, Not Null | create by which users |
+| image_url | String | NOT NULL |  | |
+
