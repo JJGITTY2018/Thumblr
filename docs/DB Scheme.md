@@ -99,12 +99,6 @@ One users can follow many users
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
 | Id | Integer SERIAL | Not null, primary key |   |
-| Post\_id | Integer | Foreign Key, Not Null | Post Table |
-| Image_ID| Integer | NOT NULL | | |
-
-| **Column Name** | **Data Type** | **Details** | **Relation to** |
-| --- | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |   |
 | user_id | Integer | Foreign Key, Not Null | create by which users |
 | image_url | String | NOT NULL |  | |
 
