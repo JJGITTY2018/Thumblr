@@ -55,23 +55,32 @@ One users can follow many users
 | Post_type | String | Not null |  Default to text |
 | text_title | Text | Not null |   |
 | text_body | Text | Not null |   |
-| PostTag\_id | Integer | Foreign Key | POST TAG Table |
-| User\_id | Interger | Foreign Key | USERS Table |
+| | | |
+| PostTag\_id | Integer | Foreign Key | POST TAG Table - which tags folder *maynot need |
+| User\_id | Interger | Foreign Key | USERS Table - post by which user |
 | Reblog\_id | Integer |   | POST ID |
-|Timestamp | TEXT | NOT NULL | When was this post published|
+|Timestamp | Text | Not Null | When was this post published|
+|||||
 |video_url| String | | external URL if type .= Video|
-|audio| String | | external URL if type .= audio|
+|video_title| String | | |
+|video_body| String | | |
+| | | | |
+|audio_title| String | | |
+|audio_url| String | | external URL if type .= audio|
+|audio_body| String | | |
+|audio_source| String | | |
+|||||
 |quote_text| string |  |   |
 |quote_source| string |  |   |
 | link_url | string | | if type = LINK|
 
 ------
 
-**POSTS** – TAGS TABLE
+**POSTS** JOIN TAGS TABLE
 
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
-| Id | Integer SERIAL | Not null, primary key |   |
+| Id | Integer SERIAL | Not null, primary key |  *maynot need |
 | Post\_id | Integer | Foreign Key, Not Null | Post Table |
 | Tags\_id | Integer | Foreign Key, Not Null | Tags Table |
 
@@ -86,7 +95,6 @@ One users can follow many users
 | User\_id | Integer | Foreign Key, Not Null | User Table |
 
 **IMAGE** JOIN TABLE
-
 
 | **Column Name** | **Data Type** | **Details** | **Relation to** |
 | --- | --- | --- | --- |
