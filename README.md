@@ -44,7 +44,7 @@ Objective: Users should be able to create posts and delete posts
 Objective: Make it look good. 
 
 
-#### Bonus Features
+### Bonus Features
 Messages
 Likes
-------------
+
