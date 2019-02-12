@@ -49,8 +49,17 @@
  
 
  ### Images/Videos
-* `GET /api/post/:id`/images
-  * GET name of the tag
+* `GET /api/post/:post_id`/images
+  * GET images of the posts
+
+
+### LIKES 
+* `GET /api/likes/:post_ids
+    * GET all like from a post
+
+###FOLLOWING
+* `GET /api/users/:user_id/followers
+    * GET all like from a post
 
  
  
