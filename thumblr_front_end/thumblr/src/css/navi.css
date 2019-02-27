@@ -188,14 +188,17 @@ table {
   top: 0;
   display: grid;
   grid-gap: 11px;
-  overflow: hidden;
+  /* overflow: hidden; */
   grid-template-columns: 60px 1fr auto;
-  background-color:rgb(239, 192, 80, 1);
+  background-color:rgba(226, 175, 57, 0.98);
+  z-index: 1;
 }
 
 .Logo {
   font-family: "hind", sans-serif;
   text-decoration: none;
+  text-align: center;
+  /* margin: -1px; */
 
 
 }
@@ -203,12 +206,17 @@ table {
 .Logo a {
   font-family: "hind", sans-serif;
   text-decoration: none;
+  font-size:12px;
+  /* margin: -1px; */
+  /* margin-top: -23px; */
+
+  /* padding: 12px; */
 
 
 }
 
 .SearchBar {
-  background-color:rgb(250,210,132);
+  background-color: rgb(250, 210, 132);
   border-radius: 4px;
   background-image: url('https://img.icons8.com/material-rounded/35/000000/google-web-search.png');
   background-position: 10px 8px;
@@ -218,7 +226,9 @@ table {
   padding-left: 40px;
   /* width: 200px; */
 }
-.SearchBar > input {
+
+
+.SearchBar input {
   font-family: 'Hind', sans-serif;
   border: 0px;
   height: 50px;
@@ -228,15 +238,19 @@ table {
   padding-top: 8px;
   font-size: 25px;
   outline: none;
-  background-color:rgb(250, 210, 132);
+  background-color:rgba(250, 211, 132, 0);
   margin-right: 10px;
   margin-left: 10px;
   width: 98%;
 }
 
-  .SearchBar > input[type = "search"]:focus  {
-    width: 98%;
+.SearchBar button[type="submit"] {
+  display: none;
+
 }
+  /* .SearchBar input[type = "search"]:focus  {
+    width: 98%;
+} */
 
 /* .SearchBar::before{
   content: url('https://img.icons8.com/material-rounded/35/000000/google-web-search.png');
@@ -265,4 +279,17 @@ table {
 .Menu ul li a {
   color:black;
    text-decoration: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0px solid green;
+  -webkit-text-fill-color: rgb(0, 0, 0);
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

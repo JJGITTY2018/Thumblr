@@ -3,7 +3,8 @@ import fetchSearchQuery from "../actions/actions.js"
 
 const fetchSearchQuery_Reducer = (oldstate = [], action) => {
 Object.freeze(oldstate);
-console.log(action)
+// console.log("Reduver Point")
+return oldstate
 }
 
 

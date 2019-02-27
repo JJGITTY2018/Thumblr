@@ -23,6 +23,7 @@ const getFollowList = (req,res,next) =>{
 }
 
 
+
 const insertFollow = (req, res, next) => {
   db.any("INSERT INTO following (follower_id, following_id) VALUES (${user_id},${following})", {
     user_id: req.body.user_id,
@@ -61,7 +62,6 @@ const removeFollow = (req, res, next) => {
 
   })
 }
-
 
 module.exports = {
   getFollowList,

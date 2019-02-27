@@ -42,13 +42,15 @@ const db = require("../db/seed.js").db
 
   //GET ALL POST BASED ON TAG NAMES
   const getAllPostsByTagsName = (req, res, next) => {
-    db.any("SELECT * FROM POSTS JOIN POST_TAG ON POSTS.ID = POST_TAG.POST_ID JOIN TAGS ON TAGS.POST_ID = POST_TAG.POST_ID WHERE TAGS.TAG_NAME LIKE ${params} ", {
-      params: req.params.tag
+    let params = req.params.tag
+    db.any("SELECT * FROM POSTS JOIN POST_TAG ON POSTS.ID = POST_TAG.POST_ID JOIN TAGS ON TAGS.ID = POST_TAG.TAG_ID WHERE TAG_NAME LIKE ${params}", {
+      params: "%" + req.params.tag + "%"
     }).then((data) => {
       res.status(200).json({
         status: 200,
         message: "Complete",
-        data: data
+        data: data,
+        request: req.params.tag
       })
     }).catch(err => {
       res.json({

@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 
 
-export default class Login extends Component {
+export default class Signup extends Component {
+  constructor(props){
+    super(props)
+    this.state = {}
+  }
 
   render(){
+   
     return (
-      <div className = "container">
-      <div className = "login_container"> 
-      <form className = "login"> 
+      <>
+      <div className = "form_container">
+       <h1> Sign Up </h1>
+      <div className = "sign_up_container"> 
+      <form className = "sign_up"> 
       <h3> Email </h3>
       <input type = "text" placeholder = "Email"/>
       <h3> Username </h3>
@@ -19,6 +26,7 @@ export default class Login extends Component {
       </form>
       </div>
       </div>
+      </>
     )
   }
 }

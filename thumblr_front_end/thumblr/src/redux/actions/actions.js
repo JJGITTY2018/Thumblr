@@ -6,6 +6,7 @@ const FETCH_SEARCH_QUERY = "FETCH_SEARCH_QUERY"
 
 
 export const fetchSearchQuery = () => dispatch => {
+  console.log("axios called")
     axios
       .get("http://localhost:1337/posts/tag/apple").then(res => {
          dispatch({

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Connect } from "react-redux"
+import { connect } from "react-redux"
 import { fetchSearchQuery_Reducer } from "../redux/actions/actions.js"
 
 // import axios from "axios"
@@ -22,10 +22,10 @@ class SearchResults extends Component {
   }
 
   componentDidMount() {
-    this.fetchSearchQuery_Reducer()
+    // this.props.fetchSearch()
+    // console.log(this.props)
   }
 
-  
 
   render(){
     return (
@@ -36,4 +36,4 @@ class SearchResults extends Component {
 }
 
 
-export default Connect(null,{fetchSearchQuery_Reducer})(SearchResults)
+export default SearchResults

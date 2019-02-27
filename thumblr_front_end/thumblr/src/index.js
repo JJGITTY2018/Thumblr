@@ -16,7 +16,7 @@ let initialState = {}
 
 // const middleware = [thunk,logger]
 
-let store = createStore(RootReducer, initialState, compose(applyMiddleware(thunk, logger), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+let store = createStore(RootReducer, initialState, compose(applyMiddleware(thunk, logger)))
 
 
 ReactDOM.render(<Provider store = {store}> <BrowserRouter><App/></BrowserRouter> </Provider>, document.getElementById('root'));

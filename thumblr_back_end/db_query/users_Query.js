@@ -28,24 +28,24 @@ const getSingleUserInfo = (req,res,next) =>{
 }
 
 //CREATE NEW USER IN USEr TABLE
-const createUser = (req, res, next) => 
-{
- db.any("INSERT INTO USERS(username, email) VALUES (${username},${email})",req.body)
-    .then(() => {
-      res.status(200).json({
-        status: 200,
-        message: "added",
-      })
-    })
-    .catch((err) => {
-      res.status({
-        status: 404,
-        error: err.message,
-        message: req.params,
-        message2: req.body
-      })
-       })
-}
+// const createUser = (req, res, next) => 
+// {
+//  db.any("INSERT INTO USERS(username, email) VALUES (${username},${email})",req.body)
+//     .then(() => {
+//       res.status(200).json({
+//         status: 200,
+//         message: "added",
+//       })
+//     })
+//     .catch((err) => {
+//       res.status({
+//         status: 404,
+//         error: err.message,
+//         message: req.params,
+//         message2: req.body
+//       })
+//        })
+// }
 
 /// WIP 
 // const createProfile = (req, res, next) => {
@@ -110,10 +110,64 @@ const editUser = (req,res,next) =>{
   })
 }
 
+
+
+///import for AUTH 
+const authHelpers = require("../auth/helper");
+
+function createUser(req, res, next) {
+  console.log(req.body)
+  const hash = authHelpers.createHash(req.body.password_unsalt);
+
+  db.none(
+      "INSERT INTO USERS (username,email, password_salt, password_unsalt) VALUES (${username}, ${email}, ${password_salt}, ${password_unsalt})", {
+        username: req.body.username,
+        email: req.body.email,
+        password_salt: hash,
+        password_unsalt: req.body.password_unsalt
+      }
+    )
+    .then(() => {
+      res.status(200).json({
+        message: "Registration successful."
+      });
+    })
+    .catch(err => {
+      res.status(400).json({
+        message: err
+      });
+    });
+}
+
+function logoutUser(req, res, next) {
+  req.logout();
+  res.status(200).send("log out success");
+}
+
+function loginUser(req, res) {
+  res.json(req.user);
+}
+
+function isLoggedIn(req, res) {
+  console.log("User Is Logged In?")
+  if (req.user) {
+    res.json({
+      username: req.user
+    });
+  } else {
+    res.json({
+      username: null
+    })
+  }
+}
+
 module.exports = {
+  isLoggedIn,
   getSingleUserInfo,
   createUser,
   editUser,
-  createProfile
+  createProfile,
+  loginUser,
+  logoutUser
 }
 
