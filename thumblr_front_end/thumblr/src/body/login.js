@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from "axios"
-import Auth from "../Auth/Auth"
+// import axios from "axios"
+// import Auth from "../Auth/Auth"
+// import login_user from "../redux/actions/actions.js"
 
 
 export default class Login extends Component {
@@ -20,39 +21,22 @@ constructor(props){
 
   onLogin = e => {
     e.preventDefault();
-    const { username, password } = this.state;
-    axios
-      .post("/users/login", {
-        username,
-        password
-      })
-      .then((res) => {
-        // console.log(username)
-        Auth.authenticateUser(username);
-      })
-      .then(() => {
-        // console.log(this.props)
-        this.props.checkAuthenticateStatus();
-      })
-      .then(() => {
-        axios.get("users/log").then((res)=>{
-          console.log(res)
-        })
-        // console.log(this.props)
-        // this.setState({
-        //   username: "",
-        //   password: ""
-        // })
-      }).then(
-        ()=>{
-          this.props.history.push('/dashboard')
-        }
-      )
+    const {
+      username,
+      password
+    } = this.state; 
+
+    this.props.function_login_user(username,password)
+    this.setState({
+      username: "",
+      password: ""
+    })
+    // this.props.login_user(username,password)
 
   }
 
-
   render(){
+    // console.log(this.props)
     return (
       <>
       <div className = "form_container">
@@ -72,3 +56,43 @@ constructor(props){
     )
   }
 }
+
+
+
+
+// onLogin = e => {
+//   e.preventDefault();
+//   const {
+//     username,
+//     password
+//   } = this.state;
+//   axios
+//     .post("/users/login", {
+//       username,
+//       password
+
+//     })
+//     .then((res) => {
+//       console.log(res)
+//       Auth.authenticateUser(username);
+//     })
+//     .then(() => {
+//       // console.log(this.props)
+//       this.props.checkAuthenticateStatus();
+//     })
+//     .then(() => {
+//       axios.get("users/log").then((res) => {
+//         console.log(this.props)
+//       })
+//       // console.log(this.props)
+//       // this.setState({
+//       //   username: "",
+//       //   password: ""
+//       // })
+//     }).then(
+//       () => {
+//         this.props.history.push('/dashboard')
+//       }
+//     )
+
+// }

@@ -16,11 +16,13 @@ import Login from "./body/login.js"
 import SearchResults from "./body/search.js"
 import Signup from './body/sign_up';
 import Logout from "./body/logout.js"
+import Login_container from "./../src/body/containers/login_container"
 
 
 //CSS
 import './css/navi.css';
 import './css/container.css'
+import login_container from './../src/body/containers/login_container';
 
 
 class App extends Component {
@@ -73,20 +75,22 @@ class App extends Component {
     return (
       <>
       <div className = "body_container">
-      <NavBar /> 
+      <NavBar props = {this.state}/> 
       <Switch> 
       <PrivateRoute exact path = "/dashboard" component = {SearchResults}></PrivateRoute>
 
-      <Route exact path = "/login" render = {props => <Login {...props} state = {this.state} checkAuthenticateStatus = {this.checkAuthenticateStatus} />}> </Route>
+      {/* <Route exact path = "/login" render = {props => <Login {...props} state = {this.state} checkAuthenticateStatus = {this.checkAuthenticateStatus} />}> </Route> */}
+
+          <Route exact path = "/login" component ={login_container}> </Route>
 
       <Route exact path = "/sign_up" component = {Signup} ></Route>
 
-      <Route exact path = "/search" component = {fetchSearch_Container}></Route>
+      <Route path = "/search" component = {login_container}></Route>
       
       <Route exact path = "/home" component = {Home} ></Route>
 
       <Route exact path = "/logout" render = {props => <Logout {...props} state = {this.state} checkAuthenticateStatus = {this.checkAuthenticateStatus} />}> </Route>
-
+      <Route path = "/*" component ={Home}> </Route>
 
       </Switch>
       </div>

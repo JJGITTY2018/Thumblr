@@ -1,6 +1,8 @@
 import React, {Component} from "react"
 import { NavLink } from "react-router-dom"
 import Axios from "axios";
+import {withRouter} from "react-router"
+import Auth from "../Auth/Auth"
 // import Signup from "../body/sign_up";
 
 class NavBar extends Component{
@@ -18,15 +20,13 @@ class NavBar extends Component{
       console.log(this.state)
     }
     
-    handleKeyStroke  = (event) => {
+    handleSubmit = (event) => {
       event.preventDefault()
-      if(event.key === "Enter"){
-        console.log("Enter is Press");
-      }
-      else {
-        console.log(event)
-      }
-
+      console.log(this.props)
+      this.props.history.push(`/search/${this.state.tag}`)
+      this.setState({
+        tag: ""
+      })
       }
       // debugger
     // Axios
@@ -34,15 +34,24 @@ class NavBar extends Component{
     //   console.log(res)
     // })
 
+    componentDidMount(){
+      this.isUserLogin()
+      // console.log(this.props)
+    }
 
+    isUserLogin = () => {
+      this.setState={
+        userLoggedin:"uihi"
+      }
+      }
 render(){
   return(
+    <>
 <div className= "NavBar">
 <div className = "Logo" ><NavLink to= "/home" ><img src="https://img.icons8.com/windows/100/000000/facebook-like.png" height = "50" alt ="logo"/> Thumblr </NavLink></div>
-
-
-<form className = "SearchBar"  ><input name = "tag" type = "textarea" 
-value = {this.state.tag}  placeholder = "Search" onChange = {this.handleChange}/> <button type="submit" disabled onKeyPress ={this.handleKeyStroke} onSubmit = {this.handleKeyStroke}></button>
+<form className = "SearchBar" onSubmit = {this.handleSubmit}>
+<input name = "tag" type = "search" 
+value = {this.state.tag}  placeholder = "Search" onChange = {this.handleChange}/> 
 </form>
 
 <div className = "Menu">
@@ -57,9 +66,10 @@ value = {this.state.tag}  placeholder = "Search" onChange = {this.handleChange}/
     </ul>
     </div>
 </div>
+</>
   )
 }
 
 }
 
-export default NavBar
+export default withRouter(NavBar)

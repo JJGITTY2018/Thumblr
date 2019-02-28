@@ -181,7 +181,6 @@ outline: none;
 }
 
 @media (max-width: 640px) {
-
   .slider-wrapper,
   .slide {
     height: calc(80vh - 75px);

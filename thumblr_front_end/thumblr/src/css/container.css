@@ -49,11 +49,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("https://picsum.photos/1920/1080/?random");
+  background-image: url("https://picsum.photos/1920/1080/?blur");
   /* background-color: black; */
   height: 800px;
   /* max-height: 700px; */
-  background-repeat: contain;
+  background-repeat: fill;
+}
+
+@media (max-height:500px) {
+  .form_container{
+    height: calc(100vh -75px)
+  }
 }
 
 h1 {

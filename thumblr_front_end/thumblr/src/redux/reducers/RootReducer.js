@@ -1,9 +1,10 @@
-import { combineReducers} from 'redux'
-import fetchSearchQuery_Reducer from "./fetch_searchQ.js"
+import {combineReducers} from 'redux'
+// import fetchSearchQuery_Reducer from "./login_Reducer.js"
+import login_user from "./login_Reducer"
 
 
 const RootReducer = combineReducers({
-fetchSearchQuery_Reducer
+  login: login_user
 })
 
 export default RootReducer
