@@ -24,7 +24,7 @@ router.post('/:id/profile',createProfile)
 router.get('/:id',getSingleUserInfo)
 router.patch("/:id", editUser)
 
-router.post('/sign-up', createUser)
+router.post('/sign_up', createUser)
 router.post("/login", passport.authenticate("local", {}),loginUser);
 
 router.post("/logout", loginRequired, logoutUser);

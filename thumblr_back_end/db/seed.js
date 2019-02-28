@@ -16,7 +16,7 @@ for (let i = 0; i < 1; i++){
   let email = faker.internet.email()
   let password_unsalt = faker.internet.password() 
   // console.log(i + " " + username + " " + email)
-  let password_salt = hashPassword.createHash(faker.internet.password())
+  let password_salt = hashPassword.createHash(password_unsalt)
   let str = `('${username}', '${email}','${password_unsalt}','${password_salt}')`
   users.push(str)
 }

@@ -146,6 +146,7 @@ function logoutUser(req, res, next) {
 
 function loginUser(req, res) {
   res.json(req.user);
+  console.log(req.user)
 }
 
 function isLoggedIn(req, res) {
