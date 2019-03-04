@@ -150,17 +150,41 @@ function loginUser(req, res) {
 }
 
 function isLoggedIn(req, res) {
-  console.log("User Is Logged In?")
-  if (req.user) {
+  let loginUser = req.user
+  db.oneOrNone('SELECT * FROM USERS WHERE USERS.username=${params}',{
+    params: req.user
+  }).then((data)=>{
+    if(data){
     res.json({
-      username: req.user
-    });
-  } else {
-    res.json({
-      username: null
+      username: data.username,
+      userID: data.id
     })
   }
+  else {
+    res.json({
+      username: null,
+      userID: null
+  })}
 }
+  )
+  .catch(err =>{
+    console.log(err)
+  })
+}
+
+
+// .then((data) => {
+//   console.log(data)
+//   if (data.username) {
+//     res.json({
+//       username: data.username,
+//       userID: data.id
+//     })
+//   } else {
+//     
+//     })
+//   }
+// })
 
 module.exports = {
   isLoggedIn,
