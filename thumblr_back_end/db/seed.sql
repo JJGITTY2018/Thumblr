@@ -10,7 +10,9 @@ CREATE TABLE USERS (
   password_unsalt VARCHAR,
   password_salt VARCHAR,
   last_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  created_on DATE NOT NULL DEFAULT NOW()
+  created_on DATE NOT NULL DEFAULT NOW(),
+  headerIMG VARCHAR DEFAULT ('https://picsum.photos/1800/500/?random'),
+  profileIMG VARCHAR DEFAULT ('https://picsum.photos/200/200/?random')
 );
 
 CREATE TABLE profile
@@ -45,6 +47,7 @@ CREATE TABLE POSTS (
   author_id INT NOT NULL REFERENCES USERS(id) ON DELETE CASCADE,
   reblog_id INT REFERENCES POSTS(id) ON DELETE SET NULL,
   publish_date TIMESTAMP DEFAULT NOW(),
+  media_url VARCHAR DEFAULT ('https://picsum.photos/800/640/?random'),
   video_url VARCHAR,
   video_caption VARCHAR,
   video_source VARCHAR,
