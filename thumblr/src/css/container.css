@@ -1,49 +1,5 @@
 
-
-.login_container{
-  align-content: center;
-  max-height: 900px;
-  display: flex;
-    /* position: absolute; */
-  height: 50%;
-}
-
-.login_container h3 {
-  font-size: 25px;
-} 
-
-.login_container input {
-  font-size: 25px;
-  /* max-height: 600px; */
-}
-
-
-.login{
-  width: 100%;
-
-  align-items: center;
-  background-color: rgba(243, 241, 221, 0.603);
-  margin: 10px;
-  border-radius: 10px;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* width: 500px; */
-  /* height: 250px; */
-
-}
-
-.login input[ type = submit]{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: rgb(216, 21, 21);
-  grid-column-start: 1;
-  grid-column-end: 3;
-  border-radius: 7px;
-  border: 0px;
-  outline: none;
-
-}
-.form_container:before {
+/* .form_container:before {
     content: '';
     display: block;
     position: absolute;
@@ -54,7 +10,7 @@
     top: -70;
     bottom: 0;
     left: 0;
-}
+} */
 .form_container {
   /* position: sticky; */
   /* left:200px; */
@@ -63,10 +19,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("https://picsum.photos/1980/1090?random");
+  background-image: url("https://picsum.photos//g/1080/720/?blur");
   /* background-color: black; */
   /* height: 100%; */
-  min-height: 500px;
+  min-height: 800px;
   /* width: 100%; */
   /* max-height: 700px; */
   background-size: cover !important;
@@ -97,26 +53,27 @@ font-size: 100px;
 
 
 #root{
-  /* height: 1080px; */
-  /* background-color: black; */
+  min-height: 800px;
+  background-color: #8c7547;
+  font-family: 'Gentium Basic',
+  serif;
 }
-
-
 
 
 .sign_up_container {
   align-content: center;
-  max-height: 900px;
+  min-height: 30%;
+  max-height: 80%;
   display: flex;
 }
 
 .sign_up_container h3 {
-  font-size: 25px;
+  font-size: 30px;
   
 }
 
 .sign_up_container input {
-  font-size: 25px;
+  font-size: 20px;
   /* max-height: 600px; */
 }
 
@@ -124,25 +81,87 @@ font-size: 100px;
 .sign_up {
   align-items: center;
   width: 100%;
-  background-color: rgba(251, 154, 211, 0.979);
+  background-color: #a3aca398;
   margin: 10px;
   border-radius: 10px;
   padding: 20px;
   display: grid;
-  grid-gap: 2px;
-  grid-template-columns: .8fr 400px;
+  grid-gap: 5px;
+  grid-template-columns: .8fr 300px;
   /* width: 500px; */
   /* height: 250px; */
 
 }
 
 .sign_up input[ type=submit] {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: rgb(148, 69, 122);
+  font-family: 'Gentium Basic', serif;
+  font-size: 55px;
+  background-color: #515B51;
   grid-column-start: 1;
   grid-column-end: 3;
   border-radius: 7px;
   border: 0px;
   outline: none;
+}
 
+.sign_up input[ type=submit]:hover {
+  background-color: rgb(111, 148, 111);
+}
+
+.sign_up input[ type=submit]:active {
+  background-color: rgb(55, 83, 55);
+}
+
+
+/* START OF LOGIN  */
+.login_container {
+  align-content: center;
+  min-height: 30%;
+  max-height: 80%;
+  display: flex;
+}
+
+.login_container h3 {
+  font-size: 30px;
+
+}
+
+.login_container input {
+  font-size: 20px;
+  /* max-height: 600px; */
+}
+
+
+.login {
+  align-items: center;
+  width: 100%;
+  background-color: #a3aca398;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: .8fr 300px;
+  /* width: 500px; */
+  /* height: 250px; */
+
+}
+
+.login input[ type=submit] {
+  font-family: 'Gentium Basic', serif;
+  font-size: 55px;
+  background-color: #515B51;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  border-radius: 7px;
+  border: 0px;
+  outline: none;
+}
+
+.login input[ type=submit]:hover {
+  background-color: rgb(111, 148, 111);
+}
+
+.login input[ type=submit]:active {
+  background-color: rgb(55, 83, 55);
 }

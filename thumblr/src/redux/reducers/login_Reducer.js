@@ -4,7 +4,7 @@
 
 const loginReducer = (oldstate = [], action) => {
   Object.freeze(oldstate);
-  console.log("@Login_Reducer")
+  // console.log("@Login_Reducer")
   switch (action.type){
     case "LOGIN_USER":
     return {
@@ -23,8 +23,6 @@ const loginReducer = (oldstate = [], action) => {
     default:
     return oldstate
   }
-
-
   }
 
 

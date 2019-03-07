@@ -5,13 +5,12 @@ const {
 
 
 const getFollowList = (req,res,next) =>{
-  db.any("SELECT follower_id AS user_id, username AS IS_following FROM following JOIN users ON following_id = users.id WHERE following.follower_id = ${params}",{
+  db.any("SELECT following_id AS user_id, username AS USERNAME FROM following JOIN users ON following_id = users.id WHERE following.follower_id = ${params}", {
     params: req.params.user_id
   }).then((data)=>{
     res.status(200).json({
       status:200,
       data: data
-
     })
   }).catch(err =>{
     res.json({

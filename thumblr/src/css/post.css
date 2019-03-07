@@ -1,0 +1,70 @@
+.searchContainer {
+ 
+   background-color: rgba(255, 117, 117, 0.3)
+ 
+}
+
+.pageTitle {
+  font-size: 50px;
+  text-align: center;
+}
+
+.searchTerm{
+  font-size: 50px;
+  text-align: center; 
+}
+
+.postContainer{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+.post:nth-child(odd){
+  background-color: #dac6ac53;
+  text-align: justify;
+  border: 2px solid rgb(0, 0, 0,.1);
+  font-size: 20px;
+  border-radius: 10px;
+  width: 24%;
+  /* min-width: 400px; */
+  margin: 3px;
+  /* padding: 10px; */
+  overflow: hidden;
+}
+
+.post:nth-child(even) {
+  background-color: #dac6ac50;
+  text-align: justify;
+  border: 3px solid rgb(0, 0, 0, .1);
+  font-size: 20px;
+  border-radius: 10px;
+  /* min-width: 400px; */
+  width: 23.2%;
+  /* height: 40%; */
+  overflow: hidden;
+  margin: 3px;
+  /* padding: 10px; */
+}
+
+.postTitle{
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: #dac6ac24
+}
+
+.postBody{
+  background-color: dac6ac27;
+  margin: 10px;
+}
+
+.postBody > img {
+  border-radius: 2%;
+  margin-top: 1%;
+}
+
+

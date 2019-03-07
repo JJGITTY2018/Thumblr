@@ -2,7 +2,7 @@ import {connect } from "react-redux";
 import {withRouter} from "react-router"
 import {login_user,checkUserAuthStatus} from "../../redux/actions/actions.js"
 import Login from "../login.js"
-import App  from "../home/home.js"
+// import App  from "../home/home.js"
 
 
 const mapStateToProps = (state, ownProps) => {

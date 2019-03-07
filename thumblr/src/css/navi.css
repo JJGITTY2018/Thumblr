@@ -1,187 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 
 .NavBar {
   position: sticky;
@@ -190,7 +7,8 @@ table {
   grid-gap: 11px;
   /* overflow: hidden; */
   grid-template-columns: 60px 1fr auto;
-  background-color:rgba(226, 175, 57, 0.98);
+  /* background-color:rgba(226, 175, 57, 0.98); */
+  background-color: #efa747;
   z-index: 1;
 }
 
@@ -198,21 +16,17 @@ table {
   font-family: "hind", sans-serif;
   text-decoration: none;
   text-align: center;
-  /* margin: -1px; */
+  margin: .2px;
 
 
 }
 
 .Logo a {
-  font-family: "hind", sans-serif;
+  font-family: 'Eczar',
+  serif;
   text-decoration: none;
-  font-size:12px;
-  /* margin: -1px; */
-  /* margin-top: -23px; */
-
-  /* padding: 12px; */
-
-
+  font-size:13px;
+  font-weight: bold;
 }
 
 .SearchBar {
@@ -270,26 +84,26 @@ table {
   font-family: 'Hind',
   sans-serif;
   text-align: center;
-  font-size: 11px;
+  font-size: 15px;
   margin: 5px;
   padding: 5px;
 
 }
 
 .Menu ul li a {
+  font-family: 'Eczar', serif;
   color:black;
-   text-decoration: none;
+  text-decoration: none;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  border: 0px solid green;
-  -webkit-text-fill-color: rgb(0, 0, 0);
-  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
-  transition: background-color 5000s ease-in-out 0s;
+.Menu ul li:hover {
+  background-color: #EDD17099;
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  /* font-family: 'Eczar', serif; */
+  text-decoration: none;
+}
+
+.Menu ul li:actibe {
+  background-color: #d68c8c;
 }

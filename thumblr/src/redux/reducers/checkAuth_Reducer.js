@@ -2,7 +2,7 @@
   import Auth from "../../Auth/Auth";
 
   const checkUserAuthStatus_reducer = (oldstate = {}, action) => {
-    console.log("@CheckUsersAuth_Reducer")
+    // console.log("@CheckUsersAuth_Reducer")
     Object.freeze(oldstate);
     switch (action.type) {
       case "CHECK_AUTH_USER":
@@ -13,6 +13,7 @@
               userID: action.payload.userID
             }
       case "LOG_OUT_USER":
+      Auth.deauthenticateUser()
       return {
         isLoggedin: "",
         username: ""

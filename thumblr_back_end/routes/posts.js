@@ -7,11 +7,13 @@ const {
   getAllUserPostByType,
   getAllPostsByTagsName,
   createAPost,
-  deleteAPost
+  deleteAPost,
+  getFollowersPosts,
+  getsFollowerList
 } = require("../db_query/posts_Query.js")
 
 /* GET users listing. */
-router.get('/:id', getPostbyId)
+router.get('/followers/:id',getFollowersPosts)
 router.get('/users/:id',getAllUserPost)
 router.get('/tag/:tag',getAllPostsByTagsName)
 router.get('/type/:type',getAllUserPostByType)

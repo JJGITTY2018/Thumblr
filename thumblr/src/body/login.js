@@ -38,7 +38,7 @@ constructor(props){
   }
 
   render(){
-    // console.log(this.props.store)
+    console.log(this.props.store)
     return (
       <>
       <div className = "form_container">
